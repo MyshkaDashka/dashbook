@@ -46,6 +46,28 @@ public class ClientController {
         return "profile.jsp";
     }
 
+    @RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
+    public String editProfile(@PathVariable("id")Integer id,ModelMap model){
+        model.addAttribute("id", id);
+        model.addAttribute("client", clientService.findClient(id));
+        return "../editProfile.jsp";
+    }
+
+    @RequestMapping(value = "/{id}/editProfile", method = RequestMethod.POST)
+    public String editProfile(@PathVariable("id")Integer id,
+                              @RequestParam("city") String city,
+                              @RequestParam("birthday") String birthday,
+                              @RequestParam("phone") String phone,
+                              @RequestParam("study") String study,
+                              @RequestParam("work") String work,
+                              @RequestParam("about") String about,
+                              ModelMap model) {
+        model.addAttribute("id", id);
+        clientService.update(id, city, birthday, phone, study, work, about);
+        return "redirect:/{id}";
+    }
+
+
 
 
 //    @RequestMapping(value = "/friend", method = RequestMethod.GET)
@@ -55,11 +77,12 @@ public class ClientController {
 //        return "friends.jsp";
 //    }
 
+
     @RequestMapping(value = "/friendSuccess", method = RequestMethod.GET)
     public String addFriends(@RequestParam("idClient") Integer idClient,
                              @RequestParam("idFriend") Integer idFriend,
                              ModelMap model) {
-       // clientService.addFriend(idClient, idFriend);
+        // clientService.addFriend(idClient, idFriend);
         return "../addFriendSuccess.jsp";
     }
 

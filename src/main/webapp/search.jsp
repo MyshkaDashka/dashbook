@@ -1,14 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<html>
 <head>
     <!-- CSS -->
     <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen, projection, tv"/>
     <link rel="stylesheet" href="../css/style-print.css" type="text/css" media="print"/>
     <link rel="stylesheet" href="../css/styleRegistration.css" type="text/css"/>
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
-
     <title>Dashka facebook | Homepage</title>
 </head>
 <body>
@@ -57,15 +55,10 @@
                     </form:form>
                 </div>
             </div>
-
             <div class="box-bottom">
-
-                <hr class="noscreen"/>
-
                 <div class="footer-info-right"><a href="http://www.mantisatemplates.com/">Mantis-a templates</a></div>
             </div>
         </div>
     </div>
 </div>
 </body>
-</html>

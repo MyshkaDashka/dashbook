@@ -27,7 +27,7 @@ public class MessageController {
     private IClientService clientService;
 
     @RequestMapping(value = "/{id}/sendmessage", method = RequestMethod.GET)
-    public String showMessages(@PathVariable Integer id, ModelMap model){
+    public String showMessages(@PathVariable Integer id, ModelMap model) {
         Client client = clientService.findClient(id);
         model.addAttribute("id", id);
         model.addAttribute("client", client);
@@ -42,12 +42,12 @@ public class MessageController {
                             @RequestParam("title") String title,
                             @RequestParam("text") String text,
                             ModelMap model) {
-        messageService.save(to, from, title, text);
+        messageService.save(to, from, title, text, false);
         return "redirect:/{id}";
     }
 
     @RequestMapping(value = "/{id}/message", method = RequestMethod.GET)
-    public String getMessageShow(@PathVariable Integer id, ModelMap model){
+    public String getMessageShow(@PathVariable Integer id, ModelMap model) {
         model.addAttribute("unreadMessDTO", messageService.geMessageDTOList(id, false));
         model.addAttribute("readMessDTO", messageService.geMessageDTOList(id, true));
         model.addAttribute("id", id);
@@ -55,17 +55,30 @@ public class MessageController {
     }
 
     @RequestMapping(value = "/{id}/msgunread", method = RequestMethod.GET)
-    public String getMessageUnreadShow(@PathVariable Integer id, ModelMap model){
+    public String getMessageUnreadShow(@PathVariable Integer id, ModelMap model) {
         model.addAttribute("unreadMessDTO", messageService.geMessageDTOList(id, false));
         model.addAttribute("id", id);
         return "../messageShow.jsp";
     }
 
     @RequestMapping(value = "/{id}/msgsent", method = RequestMethod.GET)
-    public String getMessageSentShow(@PathVariable Integer id, ModelMap model){
+    public String getMessageSentShow(@PathVariable Integer id, ModelMap model) {
         model.addAttribute("readMessDTO", messageService.getSentMessageDTOList(id));
         model.addAttribute("id", id);
         return "../messageShow.jsp";
     }
+
+    @RequestMapping(value = "/{id}/message/{msgId}", method = RequestMethod.GET)
+    public String getMessageOne(@PathVariable Integer id, @PathVariable Integer msgId, ModelMap model) {
+        Message msg = messageService.getMessage(msgId);
+        if (msg.getStatus() == false) {
+            messageService.update(msg.getId());
+        }
+        model.addAttribute("msg", msg);
+        model.addAttribute("client", clientService.findClient(id));
+        model.addAttribute("id", id);
+        return "../../messageFrom.jsp";
+    }
+
 
 }

@@ -18,4 +18,6 @@ public interface IClientService {
     public Client save(String name, String lastName, User user);
 
     public void addFriend(Integer clientId, Integer friendId);
+
+    public Client update(Integer id, String city, String birthday, String phone, String study, String work, String about);
 }

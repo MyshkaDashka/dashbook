@@ -5,7 +5,6 @@
   Time: 2:47
   To change this template use File | Settings | File Templates.
 --%>
-<html>
 <head>
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection, tv"/>
@@ -43,4 +42,3 @@
     </div>
 </div>
 </body>
-</html>

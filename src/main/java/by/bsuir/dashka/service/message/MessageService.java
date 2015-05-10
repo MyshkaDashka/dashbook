@@ -27,7 +27,7 @@ public class MessageService implements IMessageService {
 
 
     @Transactional
-    public Message save(Integer to, Integer from, String title, String text) {
+    public Message save(Integer to, Integer from, String title, String text, Boolean status) {
         Message message = new Message();
         message.setIdTo(to);
         message.setIdFrom(from);
@@ -36,9 +36,24 @@ public class MessageService implements IMessageService {
         long curTime = System.currentTimeMillis();
         Date curDate = new Date(curTime);
         message.setDate(curDate);
-        message.setStatus(false);
+        message.setStatus(status);
         return messageRepository.save(message);
     }
+
+    @Transactional
+    public Message update(Integer idMess) {
+        Message message = messageRepository.findOne(idMess);
+        message.setIdTo(message.getIdTo());
+        message.setIdFrom(message.getIdFrom());
+        message.setTitle(message.getTitle());
+        message.setText(message.getText());
+        long curTime = System.currentTimeMillis();
+        Date curDate = new Date(curTime);
+        message.setDate(message.getDate());
+        message.setStatus(true);
+        return messageRepository.save(message);
+    }
+
 
     @Transactional
     public List<MessageDTO> geMessageDTOList(Integer idClient, Boolean status){
@@ -63,4 +78,11 @@ public class MessageService implements IMessageService {
         }
         return messageDTOList;
     }
+
+    @Transactional
+    public Message getMessage(Integer id){
+        Message message = messageRepository.findOne(id);
+        return message;
+    }
+
 }

@@ -10,9 +10,12 @@ import java.util.List;
  */
 public interface IMessageService {
 
-    public Message save(Integer to, Integer from, String title, String text);
+    public Message save(Integer to, Integer from, String title, String text, Boolean status);
 
     public List<MessageDTO> getSentMessageDTOList(Integer idClient);
 
     public List<MessageDTO> geMessageDTOList(Integer idClient, Boolean status);
+
+    public Message getMessage(Integer id);
+    public Message update(Integer idMess);
 }

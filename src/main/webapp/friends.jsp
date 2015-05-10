@@ -5,9 +5,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen, projection, tv"/>
     <link rel="stylesheet" href="../css/style-print.css" type="text/css" media="print"/>
-
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
-
     <title>Dashka facebook | Homepage</title>
 </head>
 <body>
@@ -52,18 +50,10 @@
                     </c:forEach>
                 </div>
             </div>
-
             <div class="box-bottom">
-
-                <hr class="noscreen"/>
-
-                <div class="footer-info-left"><a href="/">My personal website</a>, 2008. All rights reserved.</div>
                 <div class="footer-info-right"><a href="http://www.mantisatemplates.com/">Mantis-a templates</a></div>
             </div>
         </div>
-
-        <div class="cleaner">&nbsp;</div>
     </div>
 </div>
 </body>
-</html>

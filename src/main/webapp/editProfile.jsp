@@ -1,22 +1,21 @@
 <%--
   Created by IntelliJ IDEA.
   User: Dashka
-  Date: 27.04.2015
-  Time: 15:33
+  Date: 25.04.2015
+  Time: 22:20
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <head>
-
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection, tv"/>
-    <link rel="stylesheet" href="css/style-print.css" type="text/css" media="print"/>
-    <link rel="stylesheet" href="css/styleLogin.css" type="text/css"/>
+    <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen, projection, tv"/>
+    <link rel="stylesheet" href="../css/style-print.css" type="text/css" media="print"/>
+    <link rel="stylesheet" href="../css/styleRegistration.css" type="text/css"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
-
-    <title>Dashka facebook | EditProfile</title>
-
+    <title>Dashka facebook | Homepage</title>
 </head>
 <body>
 <div id="wrapper1">
@@ -28,33 +27,58 @@
     <!-- Title end -->
     <hr class="noscreen"/>
     <div class="content">
+        <div class="column-left">
+            <h3>MENU</h3>
+            <a href="#skip-menu" class="hidden">Skip menu</a>
+            <ul class="menu">
+                <li><a href="/${id}">Home</a></li>
+                <li><a href="/${id}/friend">Friends</a></li>
+                <li><a href="/${id}/message">Messages</a></li>
+                <li><a href="/${id}/search">Search</a></li>
+                <li class="last"><a href="j_spring_security_logout">Log out</a></li>
+            </ul>
+        </div>
         <div id="skip-menu"></div>
-        <div id="wrapper">
-            <div class="user-icon"></div>
-            <div class="pass-icon"></div>
-            <form class="login-form" action="/editProfile" method="POST" name="editForm" novalidate>
+        <div class="column-right">
+            <form:form action="/${id}/editProfile" method="POST" class="register-form" name="editForm">
                 <div class="header">
                     <h1>Edit Profile</h1>
                     <span>Enter your personal data. </span>
                 </div>
                 <div class="content">
-                    <input type="text" placeholder="Name" name="name" class="input username" onfocus="this.value=''"/>
+                    <h2>City: </h2><input type="text" placeholder="City" name="city" class="input"
+                                          value="${client.city}"/>
                     <br/>
-                    <input type="text" value="LastName" name="lastname" class="input password" onfocus="this.value=''"/>
+
+                    <h2>Birthday: </h2><input type="text" placeholder="Birthday" name="birthday" class="input"
+                                              value="${client.birthday}"/>
                     <br/>
-                    <input type="text" value="Phone" name="phone" class="input password" onfocus="this.value=''"/>
+
+                    <h2>Phone: </h2><input type="text" placeholder="Phone" name="phone" class="input"
+                                           value="${client.phone}"/>
+                    <br/>
+
+                    <h2>Study: </h2><input type="text" placeholder="Study" name="study" class="input"
+                                           value="${client.study}"/>
+                    <br/>
+
+                    <h2>Work: </h2><input type="text" placeholder="Work" name="work" class="input"
+                                          value="${client.work}"/>
+                    <br/>
+
+                    <h2>About me: </h2><textarea type="text" class="input" placeholder="About me" name="about"
+                                                 value="${client.aboutMe}"></textarea><br/>
                 </div>
                 <div class="footer">
-                    <input type="submit" name="submit" value="Sing In" class="button"/>
-                    <a href="registration.jsp"><input type="button" name="submit" value="Registration"
-                                                      class="register"/></a>
+                    <input type="submit" name="submit" value="Edit" class="button"/>
+                    <a href="profile.jsp"><input type="button" name="submit" value="Back to profile"
+                                                 class="register"/></a>
                 </div>
-            </form>
+            </form:form>
         </div>
-        <br/>
-
-        <div class="cleaner">&nbsp;</div>
+        <div class="footer-info-right"><a href="http://www.mantisatemplates.com/">Mantis-a templates</a>
+        </div>
     </div>
 </div>
 </body>
-</html>
+

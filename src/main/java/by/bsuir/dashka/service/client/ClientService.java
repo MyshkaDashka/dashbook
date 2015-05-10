@@ -53,6 +53,17 @@ public class ClientService implements IClientService {
         return clientRepository.save(client);
     }
 
+    public Client update(Integer id, String city, String birthday, String phone, String study, String work, String about){
+        Client client = clientRepository.findOne(id);
+        client.setCity(city);
+        client.setBirthday(birthday);
+        client.setPhone(phone);
+        client.setStudy(study);
+        client.setWork(work);
+        client.setAboutMe(about);
+        return clientRepository.save(client);
+    }
+
     @Transactional
     public void addFriend(Integer clientId, Integer friendId) {
         Client client = clientRepository.findOne(clientId);

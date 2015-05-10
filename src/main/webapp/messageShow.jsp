@@ -58,7 +58,7 @@
                                         ${msgU.nameFriend} ${msgU.lastNameFriend}
                                 </td>
                                 <td>
-                                    <a href="/${id}/msgsent/${msgU.message.id}"> ${msgU.message.title} </a></th>
+                                    <a href="/${id}/message/${msgU.message.id}"> ${msgU.message.title} </a>
                                 </td>
                                 <td>
                                         ${msgU.message.date}
@@ -71,7 +71,7 @@
                                         ${msg.nameFriend} ${msg.lastNameFriend}
                                 </td>
                                 <td>
-                                        ${msg.message.title}
+                                    <a href="/${id}/message/${msg.message.id}"> ${msg.message.title} </a>
                                 </td>
                                 <td>
                                         ${msg.message.date}
