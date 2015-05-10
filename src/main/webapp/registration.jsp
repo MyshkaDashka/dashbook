@@ -17,24 +17,6 @@
     <!-- Title -->
     <div class="title">
         <div class="title-top">
-            <div class="title-left">
-                <div class="title-right">
-                    <div class="title-bottom">
-                        <div class="title-top-left">
-                            <div class="title-bottom-left">
-                                <div class="title-top-right">
-                                    <div class="title-bottom-right">
-                                        <h1><a href="#" title="Go to homepage">Dashka <span>FACEBOOK</span> website</a>
-                                        </h1>
-
-                                        <p>This is your choice...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <!-- Title end -->
