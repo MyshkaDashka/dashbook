@@ -29,8 +29,8 @@ public class UserService implements IUserService {
 
 
     @Transactional
-    public List<User> authUser(String login, String password) {
-        return userRepository.findByLoginAndPassword(login, password);
+    public User authUser(String login) {
+        return userRepository.findByLogin(login);
     }
 
 

@@ -13,6 +13,12 @@ public interface MessageRepository extends JpaRepository<Message, Integer> {
 
     public List<Message> findByIdFromAndIdTo(Integer idFrom, Integer idTo);
 
+    public List<Message> findByIdToOrderByDateDesc(Integer idTo);
+
+    public List<Message> findByIdToAndStatusOrderByDateDesc(Integer idTo, Boolean status);
+
+    public List<Message> findByIdFromOrderByDateDesc (Integer idFrom);
+
     public Long countByStatus(Boolean status);
 
 }

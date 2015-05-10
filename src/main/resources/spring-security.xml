@@ -21,7 +21,7 @@
                 always-use-default-target="true"/>
 
         <logout invalidate-session="true"
-                logout-success-url="/?logout"
+                logout-success-url="/"
                 delete-cookies="JSESSIONID, userInfo"/>
 
     </http>

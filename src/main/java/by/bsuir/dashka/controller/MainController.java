@@ -1,5 +1,6 @@
 package by.bsuir.dashka.controller;
 
+import by.bsuir.dashka.dto.UserDTO;
 import by.bsuir.dashka.entity.Client;
 import by.bsuir.dashka.entity.Message;
 import by.bsuir.dashka.entity.User;
@@ -19,7 +20,7 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
+import static by.bsuir.dashka.utils.Literal.*;
 /**
  * Created by Dashka on 25.04.2015.
  */
@@ -38,15 +39,12 @@ public class MainController {
         return "authorization.jsp";
     }
 
-    @RequestMapping(value = "/authorization", method = RequestMethod.POST)
-    public String goToProfile(@RequestParam("login") String login,
-                              @RequestParam("pass") String pass, Principal principal, ModelMap model) {
-        List<User> userList = userService.authUser(login, pass);
-        User user = userList.get(0);
-        Integer idClient = user.getClient().getId();
-        Client client = clientService.findClient(idClient);
-        model.addAttribute("client", client);
-        return "profile.jsp";
+    @RequestMapping(value = "/success", method = RequestMethod.GET)
+    public String goToProfile( Principal principal, ModelMap model) {
+        User user = userService.authUser(principal.getName());
+        Integer id = user.getClient().getId();
+        model.addAttribute("id", id);
+        return "redirect:/{id}";
     }
 
     @RequestMapping(value = "/registrations", method = RequestMethod.POST)
@@ -55,9 +53,16 @@ public class MainController {
                                    @RequestParam("name") String name,
                                    @RequestParam("lastName") String lastName,
                                    ModelMap model) {
+        UserDTO userDTO = new UserDTO(name, lastName, login);
+        if (userService.authUser(login) != null){
+            String errString = ERROR_LOGIN_MESSAGE;
+            model.addAttribute("user", userDTO);
+            model.addAttribute("error", errString);
+            return "registration.jsp";
+        }
         User user = userService.save(login, pass, "USER");
-        Client client = clientService.save(name, lastName, user);
-        return "redirect:profile.jsp";
+        clientService.save(name, lastName, user);
+        return "authorization.jsp";
     }
 
 

@@ -1,7 +1,5 @@
 package by.bsuir.dashka.entity;
 
-import lombok.Data;
-
 import javax.persistence.*;
 import java.util.*;
 
@@ -165,9 +163,7 @@ public class Client {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Client client = (Client) o;
-
         if (!id.equals(client.id)) return false;
         if (!name.equals(client.name)) return false;
         if (!lastName.equals(client.lastName)) return false;
@@ -177,9 +173,7 @@ public class Client {
         if (photo != null ? !photo.equals(client.photo) : client.photo != null) return false;
         if (work != null ? !work.equals(client.work) : client.work != null) return false;
         if (study != null ? !study.equals(client.study) : client.study != null) return false;
-        if (aboutMe != null ? !aboutMe.equals(client.aboutMe) : client.aboutMe != null) return false;
-        if (friends != null ? !friends.equals(client.friends) : client.friends != null) return false;
-        return !(clients != null ? !clients.equals(client.clients) : client.clients != null);
+        return !(aboutMe != null ? !aboutMe.equals(client.aboutMe) : client.aboutMe != null);
 
     }
 

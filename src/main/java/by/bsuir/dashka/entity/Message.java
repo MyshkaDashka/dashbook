@@ -18,10 +18,10 @@ public class Message {
     private Integer id;
 
     @Column(nullable = false)
-    private Integer idFrom;
+    private Integer idTo;
 
     @Column(nullable = false)
-    private Integer idTo;
+    private Integer idFrom;
 
     @Column(nullable = false)
     private Date date;

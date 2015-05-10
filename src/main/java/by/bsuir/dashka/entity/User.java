@@ -80,7 +80,6 @@ public class User {
         if (!password.equals(user.password)) return false;
         if (role != null ? !role.equals(user.role) : user.role != null) return false;
         return !(client != null ? !client.equals(user.client) : user.client != null);
-
     }
 
     @Override

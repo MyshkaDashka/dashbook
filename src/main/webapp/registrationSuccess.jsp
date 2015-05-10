@@ -47,22 +47,18 @@
         <div id="wrapper">
             <div class="user-icon"></div>
             <div class="pass-icon"></div>
-            <form class="register-form" action="" method="POST" name="registrationForm" novalidate>
+            <form class="register-form">
                 <div class="header">
-                    <h1>Registration successful! </h1>
+                    <h1>Registration successful!</h1>
                     <span>Return to authorization to enter a personal profile. </span>
                 </div>
                 <div class="footer">
                     <a href="authorization.jsp"><input type="button" name="submit" value="Back to authorization"
                                                        class="register"/></a>
-
                 </div>
-
             </form>
         </div>
         <br/>
-
-        <div class="cleaner">&nbsp;</div>
     </div>
 </div>
 </body>

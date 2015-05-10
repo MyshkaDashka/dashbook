@@ -1,15 +1,10 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
-
 <head>
     <!-- CSS -->
     <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen, projection, tv"/>
     <link rel="stylesheet" href="../css/style-print.css" type="text/css" media="print"/>
-    <link rel="stylesheet" href="../css/styleRegistration.css" type="text/css"/>
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
-
     <title>Dashka facebook | Homepage</title>
 </head>
 <body>
@@ -56,45 +51,61 @@
             <div class="box">
                 <div class="box-top"></div>
                 <div class="box-in">
-                    <form:form action="/${client.id}/sendMessage" method="POST" commandName="messagesForm" class="register-form">
-                        <div class="header">
-                            <h1>Send message.</h1>
-                            <span></span>
-                        </div>
-                        <div class="content">
-                            <h2>To:</h2><select class="input" name="to">
-                            <c:forEach items="${friends}" var="friend">
-                                <option value="${friend.id}">${friend.name} ${friend.lastName}</option>
-                            </c:forEach>
-                        </select><br/>
+                    <br>
+                    <table class="table-info">
+                        <tr>
+                            <th><a href="/${id}/msgunread"> Unread </a></th>
+                            <th><a href="/${id}/message"> Inbox </a></th>
+                            <th><a href="/${id}/msgsent"> Sent </a></th>
+                            <th><a href="/${id}/sendmessage">
+                                <button type="button" name="button" class="myButton"> Send message</button>
+                            </a></th>
+                        </tr>
+                    </table>
 
-                            <h2>Title:</h2><input type="text" class="input" placeholder="Title" name="title"
-                                                  required><br/>
+                    <br>
+                    <table class="table-show" border>
+                        <tr>
+                            <th>From</th>
+                            <th>Title</th>
+                            <th>Date</th>
+                        </tr>
+                        <c:forEach items="${unreadMessDTO}" var="msgU">
+                            <tr class="table-show-unread">
+                                <td>
+                                        ${msgU.nameFriend} ${msgU.lastNameFriend}
+                                </td>
+                                <td>
+                                    <a href="/${id}/msgsent/${msgU.message.id}"> ${msgU.message.title} </a></th>
+                                </td>
+                                <td>
+                                        ${msgU.message.date}
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        <c:forEach items="${readMessDTO}" var="msg">
+                            <tr>
+                                <td>
+                                        ${msg.nameFriend} ${msg.lastNameFriend}
+                                </td>
+                                <td>
+                                        ${msg.message.title}
+                                </td>
+                                <td>
+                                        ${msg.message.date}
+                                </td>
+                            </tr>
+                        </c:forEach>
 
-                            <h2>Text:</h2><textarea type="text" class="input" placeholder="Message text" name="text"
-                                                    required> </textarea><br/>
-                        </div>
-                        <div class="footer">
-                            <button type="submit" name="submit" class="button" ng-disabled="messagesForm.$invalid"> Send
-                                message
-                            </button>
-                            <a href="/${client.id}"><input type="button" name="submit" value="Back to profile"
-                                                         class="register"/></a>
-                        </div>
-                    </form:form>
+                    </table>
                 </div>
             </div>
-
             <div class="box-bottom">
-
                 <hr class="noscreen"/>
-
-                <div class="footer-info-left"><a href="/">My personal website</a>, 2008. All rights reserved.</div>
                 <div class="footer-info-right"><a href="http://www.mantisatemplates.com/">Mantis-a templates</a></div>
             </div>
         </div>
-
-        <div class="cleaner">&nbsp;</div>
     </div>
 </div>
 </body>
+

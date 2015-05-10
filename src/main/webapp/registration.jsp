@@ -51,16 +51,16 @@
                     <span>Enter the details for registration. </span>
                 </div>
                 <div class="content">
-                    <h2>Name:</h2><input type="text" class="input username" placeholder="Name" name="name" required>
+                    <h2>Name:</h2><input type="text" class="input username" placeholder="Name" name="name" value="${user.name}" required>
                     <br/>
 
-                    <h2>Surname:</h2><input type="text" class="input username" placeholder="Surname" name="lastName"
+                    <h2>Surname:</h2><input type="text" class="input username" placeholder="Surname" name="lastName" value="${user.lastName}"
                                             required><br/>
 
                     <h2>Login or e-mail:</h2><input type="text" class="input username" placeholder="Login or e-mail"
-                                                    name="email" required> <br/>
+                                                    name="email" value="${user.login}" required> <br/>  ${error}
 
-                    <h2>Password:</h2><input type="text" class="input username" placeholder="Password" name="pass"
+                    <h2>Password:</h2><input type="password" class="input username" placeholder="Password" name="pass"
                                              required> <br/>
                 </div>
                 <div class="footer">

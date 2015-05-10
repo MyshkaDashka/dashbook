@@ -11,6 +11,6 @@ public interface IUserService {
 
     public User save(String login, String pass, String role);
 
-    public List<User> authUser(String login, String password);
+    public User authUser(String login);
 
 }
