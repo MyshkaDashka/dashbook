@@ -1,25 +1,17 @@
 package by.bsuir.dashka.controller;
 
 import by.bsuir.dashka.dto.UserDTO;
-import by.bsuir.dashka.entity.Client;
-import by.bsuir.dashka.entity.Message;
 import by.bsuir.dashka.entity.User;
 import by.bsuir.dashka.service.client.IClientService;
-import by.bsuir.dashka.service.message.IMessageService;
 import by.bsuir.dashka.service.user.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 import static by.bsuir.dashka.utils.Literal.*;
 /**
  * Created by Dashka on 25.04.2015.
@@ -55,13 +47,13 @@ public class MainController {
                                    ModelMap model) {
         UserDTO userDTO = new UserDTO(name, lastName, login);
         if (userService.authUser(login) != null){
-            String errString = ERROR_LOGIN_MESSAGE;
             model.addAttribute("user", userDTO);
-            model.addAttribute("error", errString);
+            model.addAttribute("error", ERROR_LOGIN_MESSAGE);
             return "registration.jsp";
         }
         User user = userService.save(login, pass, "USER");
         clientService.save(name, lastName, user);
+        model.addAttribute("msgSuccess", MSG_REGISTRATION_SUCCESS);
         return "authorization.jsp";
     }
 

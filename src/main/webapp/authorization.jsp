@@ -22,8 +22,11 @@
         <div id="wrapper">
             <form:form class="login-form" action="/j_spring_security_check" method="POST" name="authorizationForm">
                 <div class="header">
+                    <h2>${msgSuccess}</h2>
+
                     <h1>Authorization</h1>
                     <span>Enter your login credentials in your personal profile. </span>
+
                 </div>
                 <div class="content">
                     <input type="text" placeholder="Login" name="j_username" class="input username"

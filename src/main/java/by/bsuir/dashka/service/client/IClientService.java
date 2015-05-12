@@ -20,4 +20,6 @@ public interface IClientService {
     public void addFriend(Integer clientId, Integer friendId);
 
     public Client update(Integer id, String city, String birthday, String phone, String study, String work, String about);
+
+    public Boolean checkFriendAdd (Integer idClient, Integer idFriend);
 }

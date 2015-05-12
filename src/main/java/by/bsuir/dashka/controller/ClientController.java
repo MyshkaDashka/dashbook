@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import static by.bsuir.dashka.utils.Literal.*;
 import java.util.Set;
 
 /**
@@ -43,7 +43,7 @@ public class ClientController {
         Client client = clientService.findClient(friendId);
         model.addAttribute("id", id);
         model.addAttribute("client", client);
-        return "profile.jsp";
+        return "../../friendProfile.jsp";
     }
 
     @RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
@@ -69,21 +69,23 @@ public class ClientController {
 
 
 
-
-//    @RequestMapping(value = "/friend", method = RequestMethod.GET)
-//    public String showFriendsNoId(ModelMap model) {
-//        Set<Client> friends = clientService.getFriends(4);
-//        model.addAttribute("friends", friends);
-//        return "friends.jsp";
-//    }
-
-
-    @RequestMapping(value = "/friendSuccess", method = RequestMethod.GET)
-    public String addFriends(@RequestParam("idClient") Integer idClient,
-                             @RequestParam("idFriend") Integer idFriend,
+    @RequestMapping(value = "/{id}/addFriend/{idFriend}", method = RequestMethod.GET)
+    public String addFriends(@PathVariable Integer id,
+                             @PathVariable Integer idFriend,
                              ModelMap model) {
-        // clientService.addFriend(idClient, idFriend);
-        return "../addFriendSuccess.jsp";
+        if(clientService.checkFriendAdd(id, idFriend)){
+            model.addAttribute("msgFriendsStatus", MSG_USER_IN_FRIENDS);
+        } else if(id.equals(idFriend)){
+            model.addAttribute("msgFriendsStatus", MSG_USER_ADD_YOURSELF);
+        } else {
+            clientService.addFriend(id, idFriend);
+            model.addAttribute("msgFriendsStatus", MSG_ADD_FRIEND_SUCCESS);
+        }
+        model.addAttribute("id", id);
+        model.addAttribute("client", clientService.findClient(idFriend));
+        return "/friendProfile.jsp";
     }
+
+
 
 }

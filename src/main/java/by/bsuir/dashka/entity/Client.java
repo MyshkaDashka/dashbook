@@ -39,8 +39,8 @@ public class Client {
     @Column(nullable = true)
     private String study;
 
-    @Column(nullable = true)
-    private String aboutMe;
+    @Column(nullable = true, columnDefinition="TEXT")
+    private  String aboutMe;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)

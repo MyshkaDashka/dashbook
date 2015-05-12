@@ -1,7 +1,5 @@
 package by.bsuir.dashka.entity;
 
-import lombok.Data;
-
 import javax.persistence.*;
 
 /**

@@ -1,6 +1,5 @@
 package by.bsuir.dashka.dto;
 
-import by.bsuir.dashka.entity.Client;
 import by.bsuir.dashka.entity.Message;
 import lombok.Data;
 

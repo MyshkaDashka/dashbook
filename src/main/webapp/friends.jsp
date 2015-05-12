@@ -38,8 +38,7 @@
                     <br>
                     <c:forEach items="${friends}" var="friend">
                         <p><img src="../img/girl.png" class="box-infoFriends"></p>
-
-                        <h2>${friend.name} ${friend.lastName}</h2>
+                        <a href="/${id}/friend/${friend.id}"><h2>${friend.name} ${friend.lastName}</h2></a>
                         <br/>
                         <ul class="main-listFriend">
                             <li><strong>City: </strong> ${friend.city}</li>

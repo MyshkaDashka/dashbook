@@ -53,6 +53,7 @@ public class ClientService implements IClientService {
         return clientRepository.save(client);
     }
 
+    @Transactional
     public Client update(Integer id, String city, String birthday, String phone, String study, String work, String about){
         Client client = clientRepository.findOne(id);
         client.setCity(city);
@@ -72,5 +73,10 @@ public class ClientService implements IClientService {
         clientRepository.save(client);
         friend.getFriends().add(client);
         clientRepository.save(friend);
+    }
+
+    @Transactional
+    public Boolean checkFriendAdd (Integer idClient, Integer idFriend){
+        return clientRepository.findOne(idClient).getFriends().contains(clientRepository.findOne(idFriend));
     }
 }

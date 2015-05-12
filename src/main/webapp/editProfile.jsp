@@ -66,12 +66,11 @@
                                           value="${client.work}"/>
                     <br/>
 
-                    <h2>About me: </h2><textarea type="text" class="input" placeholder="About me" name="about"
-                                                 value="${client.aboutMe}"></textarea><br/>
+                    <h2>About me: </h2><textarea type="text" class="input" placeholder="About me" name="aboutMe">${client.aboutMe}</textarea><br/>
                 </div>
                 <div class="footer">
                     <input type="submit" name="submit" value="Edit" class="button"/>
-                    <a href="profile.jsp"><input type="button" name="submit" value="Back to profile"
+                    <a href="/${id}"><input type="button" name="submit" value="Back to profile"
                                                  class="register"/></a>
                 </div>
             </form:form>
