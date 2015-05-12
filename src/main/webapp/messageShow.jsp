@@ -49,13 +49,17 @@
                     <table class="table-show" border>
                         <tr>
                             <th>From</th>
+                            <th>To</th>
                             <th>Title</th>
                             <th>Date</th>
                         </tr>
                         <c:forEach items="${unreadMessDTO}" var="msgU">
                             <tr class="table-show-unread">
                                 <td>
-                                        ${msgU.nameFriend} ${msgU.lastNameFriend}
+                                    <a href="/${id}/friend/${msgU.idFriend}">${msgU.nameFriend} ${msgU.lastNameFriend}</a>
+                                </td>
+                                <td>
+                                    <a href="/${id}"> ${client.name} ${client.lastName}</a>
                                 </td>
                                 <td>
                                     <a href="/${id}/message/${msgU.message.id}"> ${msgU.message.title} </a>
@@ -68,7 +72,10 @@
                         <c:forEach items="${readMessDTO}" var="msg">
                             <tr>
                                 <td>
-                                        ${msg.nameFriend} ${msg.lastNameFriend}
+                                    <a href="/${id}/friend/${msg.idFriend}"> ${msg.nameFriend} ${msg.lastNameFriend}</a>
+                                </td>
+                                <td>
+                                    <a href="/${id}"> ${client.name} ${client.lastName}</a>
                                 </td>
                                 <td>
                                     <a href="/${id}/message/${msg.message.id}"> ${msg.message.title} </a>
@@ -78,7 +85,22 @@
                                 </td>
                             </tr>
                         </c:forEach>
-
+                        <c:forEach items="${sentMessDTO}" var="msgS">
+                            <tr>
+                                <td>
+                                    <a href="/${id}">${client.name} ${client.lastName} </a>
+                                </td>
+                                <td>
+                                    <a href="/${id}/friend/${msgS.idFriend}"> ${msgS.nameFriend} ${msgS.lastNameFriend}</a>
+                                </td>
+                                <td>
+                                    <a href="/${id}/message/${msgS.message.id}"> ${msgS.message.title} </a>
+                                </td>
+                                <td>
+                                        ${msgS.message.date}
+                                </td>
+                            </tr>
+                        </c:forEach>
                     </table>
                 </div>
             </div>

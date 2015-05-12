@@ -50,6 +50,7 @@ public class MessageController {
     public String getMessageShow(@PathVariable Integer id, ModelMap model) {
         model.addAttribute("unreadMessDTO", messageService.geMessageDTOList(id, false));
         model.addAttribute("readMessDTO", messageService.geMessageDTOList(id, true));
+        model.addAttribute("client", clientService.findClient(id));
         model.addAttribute("id", id);
         return "../messageShow.jsp";
     }
@@ -57,13 +58,15 @@ public class MessageController {
     @RequestMapping(value = "/{id}/msgunread", method = RequestMethod.GET)
     public String getMessageUnreadShow(@PathVariable Integer id, ModelMap model) {
         model.addAttribute("unreadMessDTO", messageService.geMessageDTOList(id, false));
+        model.addAttribute("client", clientService.findClient(id));
         model.addAttribute("id", id);
         return "../messageShow.jsp";
     }
 
     @RequestMapping(value = "/{id}/msgsent", method = RequestMethod.GET)
     public String getMessageSentShow(@PathVariable Integer id, ModelMap model) {
-        model.addAttribute("readMessDTO", messageService.getSentMessageDTOList(id));
+        model.addAttribute("sentMessDTO", messageService.getSentMessageDTOList(id));
+        model.addAttribute("client", clientService.findClient(id));
         model.addAttribute("id", id);
         return "../messageShow.jsp";
     }

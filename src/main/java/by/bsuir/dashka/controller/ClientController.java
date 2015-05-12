@@ -86,6 +86,23 @@ public class ClientController {
         return "/friendProfile.jsp";
     }
 
+    @RequestMapping(value = "/{id}/removeFriend/{idFriend}", method = RequestMethod.GET)
+    public String removeFriends(@PathVariable Integer id,
+                             @PathVariable Integer idFriend,
+                             ModelMap model) {
+        if(!clientService.checkFriendAdd(id, idFriend)){
+            model.addAttribute("msgFriendsStatus", MSG_USER_NOT_FRIEND);
+        } else {
+            clientService.removeFriend(id, idFriend);
+            model.addAttribute("msgFriendsStatus", MSG_USER_REMOVE_FROM_FRIEND);
+        }
+        model.addAttribute("friends", clientService.getFriends(id));
+        model.addAttribute("id", id);
+        model.addAttribute("client", clientService.findClient(id));
+        model.addAttribute("removeFriend", clientService.findClient(idFriend));
+        return "/friends.jsp";
+    }
+
 
 
 }

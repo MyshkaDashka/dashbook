@@ -14,9 +14,12 @@ public class MessageDTO {
 
     private Message message;
 
-    public MessageDTO(String nameFriend, String lastNameFriend, Message message){
+    private Integer idFriend;
+
+    public MessageDTO(String nameFriend, String lastNameFriend, Message message, Integer idFriend){
         this.nameFriend = nameFriend;
         this.lastNameFriend = lastNameFriend;
         this.message = message;
+        this.idFriend = idFriend;
     }
 }

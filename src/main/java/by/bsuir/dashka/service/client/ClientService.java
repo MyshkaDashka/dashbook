@@ -1,7 +1,9 @@
 package by.bsuir.dashka.service.client;
 
 import by.bsuir.dashka.entity.Client;
+import by.bsuir.dashka.entity.Client_FriendList;
 import by.bsuir.dashka.entity.User;
+import by.bsuir.dashka.repository.ClientFriendRepository;
 import by.bsuir.dashka.repository.ClientRepository;
 import by.bsuir.dashka.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -21,6 +24,9 @@ public class ClientService implements IClientService {
     @Autowired
     private ClientRepository clientRepository;
 
+    @Autowired
+    private ClientFriendRepository clientFriendRepository;
+
     @Transactional
     public Client findClient(Integer id) {
         Client client = clientRepository.findOne(id);
@@ -29,18 +35,11 @@ public class ClientService implements IClientService {
 
     @Transactional
     public Set<Client> getFriends(Integer id) {
-        Client client = clientRepository.findOne(id);
-        Set<Client> friends = client.getFriends();
-        Set<Client> clients = client.getClients();
-        for (Client c : friends) {
-            c.setFriends(null);
-            c.setClients(null);
+        List<Client_FriendList> client_friendLists = clientFriendRepository.findByIdClient(id);
+        Set<Client> friends = new HashSet<Client>();
+        for (Client_FriendList cf : client_friendLists) {
+            friends.add(clientRepository.findOne(cf.getIdFriend()));
         }
-        for (Client c : clients) {
-            c.setFriends(null);
-            c.setClients(null);
-        }
-        friends.addAll(clients);
         return friends;
     }
 
@@ -54,7 +53,7 @@ public class ClientService implements IClientService {
     }
 
     @Transactional
-    public Client update(Integer id, String city, String birthday, String phone, String study, String work, String about){
+    public Client update(Integer id, String city, String birthday, String phone, String study, String work, String about) {
         Client client = clientRepository.findOne(id);
         client.setCity(city);
         client.setBirthday(birthday);
@@ -67,16 +66,24 @@ public class ClientService implements IClientService {
 
     @Transactional
     public void addFriend(Integer clientId, Integer friendId) {
-        Client client = clientRepository.findOne(clientId);
-        Client friend = clientRepository.findOne(friendId);
-        client.getFriends().add(friend);
-        clientRepository.save(client);
-        friend.getFriends().add(client);
-        clientRepository.save(friend);
+        Client_FriendList cf = new Client_FriendList();
+        cf.setIdClient(clientId);
+        cf.setIdFriend(friendId);
+        clientFriendRepository.save(cf);
     }
 
     @Transactional
-    public Boolean checkFriendAdd (Integer idClient, Integer idFriend){
-        return clientRepository.findOne(idClient).getFriends().contains(clientRepository.findOne(idFriend));
+    public Boolean checkFriendAdd(Integer idClient, Integer idFriend) {
+        if (clientFriendRepository.findByIdClientAndIdFriend(idClient, idFriend) == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    @Transactional
+    public void removeFriend(Integer clientId, Integer friendId) {
+        Client_FriendList cf = clientFriendRepository.findByIdClientAndIdFriend(clientId, friendId);
+        clientFriendRepository.delete(cf);
     }
 }

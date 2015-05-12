@@ -14,4 +14,8 @@ public class Literal {
     public  static final String MSG_ADD_FRIEND_SUCCESS = "Friend successfully added.";
 
     public static final String MSG_REGISTRATION_SUCCESS = "Registration successful!";
+
+    public static final String MSG_USER_NOT_FRIEND = " isn't in your friends.";
+
+    public static final String MSG_USER_REMOVE_FROM_FRIEND = " removed from friends.";
 }

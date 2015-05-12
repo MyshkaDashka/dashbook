@@ -46,14 +46,14 @@ public class Client {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    @JoinTable(name = "client_friend",
-            joinColumns = {@JoinColumn(name = "client_id")},
-            inverseJoinColumns = {@JoinColumn(name = "friend_id")})
-    private Set<Client> friends = new HashSet<Client>();
-
-    @ManyToMany(mappedBy = "friends", fetch = FetchType.LAZY)
-    private Set<Client> clients = new HashSet<Client>();
+//    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+//    @JoinTable(name = "client_friend",
+//            joinColumns = {@JoinColumn(name = "client_id")},
+//            inverseJoinColumns = {@JoinColumn(name = "friend_id")})
+//    private Set<Client> friends = new HashSet<Client>();
+//
+//    @ManyToMany(mappedBy = "friends", fetch = FetchType.LAZY)
+//    private Set<Client> clients = new HashSet<Client>();
 
     public Integer getId() {
         return id;
@@ -143,21 +143,21 @@ public class Client {
         this.user = user;
     }
 
-    public Set<Client> getFriends() {
-        return friends;
-    }
-
-    public void setFriends(Set<Client> friends) {
-        this.friends = friends;
-    }
-
-    public Set<Client> getClients() {
-        return clients;
-    }
-
-    public void setClients(Set<Client> clients) {
-        this.clients = clients;
-    }
+//    public Set<Client> getFriends() {
+//        return friends;
+//    }
+//
+//    public void setFriends(Set<Client> friends) {
+//        this.friends = friends;
+//    }
+//
+//    public Set<Client> getClients() {
+//        return clients;
+//    }
+//
+//    public void setClients(Set<Client> clients) {
+//        this.clients = clients;
+//    }
 
     @Override
     public boolean equals(Object o) {

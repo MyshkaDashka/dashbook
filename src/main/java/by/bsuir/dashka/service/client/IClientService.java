@@ -22,4 +22,6 @@ public interface IClientService {
     public Client update(Integer id, String city, String birthday, String phone, String study, String work, String about);
 
     public Boolean checkFriendAdd (Integer idClient, Integer idFriend);
+
+    public void removeFriend(Integer clientId, Integer friendId);
 }

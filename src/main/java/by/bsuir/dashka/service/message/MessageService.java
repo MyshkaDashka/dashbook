@@ -61,7 +61,7 @@ public class MessageService implements IMessageService {
         List<MessageDTO> messageDTOList = new ArrayList<MessageDTO>();
         for (Message msg: messagesList){
             Client client = clientRepository.getOne(msg.getIdFrom());
-            MessageDTO messageDTO = new MessageDTO(client.getName(), client.getLastName(), msg);
+            MessageDTO messageDTO = new MessageDTO(client.getName(), client.getLastName(), msg, client.getId());
             messageDTOList.add(messageDTO);
         }
         return messageDTOList;
@@ -73,7 +73,7 @@ public class MessageService implements IMessageService {
         List<MessageDTO> messageDTOList = new ArrayList<MessageDTO>();
         for (Message msg: messagesList){
             Client client = clientRepository.getOne(msg.getIdTo());
-            MessageDTO messageDTO = new MessageDTO(client.getName(), client.getLastName(), msg);
+            MessageDTO messageDTO = new MessageDTO(client.getName(), client.getLastName(), msg, client.getId());
             messageDTOList.add(messageDTO);
         }
         return messageDTOList;

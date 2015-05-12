@@ -3,9 +3,9 @@
 <html>
 <head>
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen, projection, tv"/>
-    <link rel="stylesheet" href="../css/style-print.css" type="text/css" media="print"/>
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen, projection, tv"/>
+    <link rel="stylesheet" href="../../css/style-print.css" type="text/css" media="print"/>
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon"/>
     <title>Dashka facebook | Homepage</title>
 </head>
 <body>
@@ -35,14 +35,16 @@
                 <div class="box-top"></div>
                 <div class="box-in">
                     <h2>Friends ${client.name} ${client.lastName}</h2>
-                    <br>
+                    ${removeFriend.name} ${removeFriend.lastName} ${msgFriendsStatus}
                     <c:forEach items="${friends}" var="friend">
-                        <p><img src="../img/girl.png" class="box-infoFriends"></p>
+                        <p><img src="../../img/girl.png" class="box-infoFriends"></p>
                         <a href="/${id}/friend/${friend.id}"><h2>${friend.name} ${friend.lastName}</h2></a>
                         <br/>
+                        <a href="/${id}/removeFriend/${friend.id}">
+                            <button type="button" name="button" class="myButton"> Remove Friend </button>
+                        </a>
                         <ul class="main-listFriend">
                             <li><strong>City: </strong> ${friend.city}</li>
-                            <li><strong>Birthday: </strong> ${friend.birthday}</li>
                             <li><strong>Phone: </strong> ${friend.phone}</li>
                         </ul>
                         <hr>
