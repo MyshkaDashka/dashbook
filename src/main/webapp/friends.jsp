@@ -24,7 +24,7 @@
             <ul class="menu">
                 <li><a href="/${id}">Home</a></li>
                 <li><a href="/${id}/friend">Friends</a></li>
-                <li><a href="/${id}/message">Messages</a></li>
+                <li><a href="/${id}/message">Messages ${countMess}</a></li>
                 <li><a href="/${id}/search">Search</a></li>
                 <li class="last"><a href="j_spring_security_logout">Log out</a></li>
             </ul>
@@ -41,7 +41,7 @@
                         <a href="/${id}/friend/${friend.id}"><h2>${friend.name} ${friend.lastName}</h2></a>
                         <br/>
                         <a href="/${id}/removeFriend/${friend.id}">
-                            <button type="button" name="button" class="myButton"> Remove Friend </button>
+                            <button type="button" name="button" class="myButton"> Remove Friend</button>
                         </a>
                         <ul class="main-listFriend">
                             <li><strong>City: </strong> ${friend.city}</li>

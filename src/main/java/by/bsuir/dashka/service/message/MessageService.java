@@ -47,8 +47,6 @@ public class MessageService implements IMessageService {
         message.setIdFrom(message.getIdFrom());
         message.setTitle(message.getTitle());
         message.setText(message.getText());
-        long curTime = System.currentTimeMillis();
-        Date curDate = new Date(curTime);
         message.setDate(message.getDate());
         message.setStatus(true);
         return messageRepository.save(message);
@@ -56,10 +54,10 @@ public class MessageService implements IMessageService {
 
 
     @Transactional
-    public List<MessageDTO> geMessageDTOList(Integer idClient, Boolean status){
+    public List<MessageDTO> geMessageDTOList(Integer idClient, Boolean status) {
         List<Message> messagesList = messageRepository.findByIdToAndStatusOrderByDateDesc(idClient, status);
         List<MessageDTO> messageDTOList = new ArrayList<MessageDTO>();
-        for (Message msg: messagesList){
+        for (Message msg : messagesList) {
             Client client = clientRepository.getOne(msg.getIdFrom());
             MessageDTO messageDTO = new MessageDTO(client.getName(), client.getLastName(), msg, client.getId());
             messageDTOList.add(messageDTO);
@@ -68,10 +66,10 @@ public class MessageService implements IMessageService {
     }
 
     @Transactional
-    public List<MessageDTO> getSentMessageDTOList(Integer idClient){
+    public List<MessageDTO> getSentMessageDTOList(Integer idClient) {
         List<Message> messagesList = messageRepository.findByIdFromOrderByDateDesc(idClient);
         List<MessageDTO> messageDTOList = new ArrayList<MessageDTO>();
-        for (Message msg: messagesList){
+        for (Message msg : messagesList) {
             Client client = clientRepository.getOne(msg.getIdTo());
             MessageDTO messageDTO = new MessageDTO(client.getName(), client.getLastName(), msg, client.getId());
             messageDTOList.add(messageDTO);
@@ -80,9 +78,19 @@ public class MessageService implements IMessageService {
     }
 
     @Transactional
-    public Message getMessage(Integer id){
+    public Message getMessage(Integer id) {
         Message message = messageRepository.findOne(id);
         return message;
+    }
+
+    @Transactional
+    public Long getCountUnread(Integer id) {
+        Long count = messageRepository.countByStatusAndIdTo(false, id);
+        if (count == 0) {
+            return null;
+        } else {
+            return count;
+        }
     }
 
 }

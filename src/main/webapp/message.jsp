@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../css/styleRegistration.css" type="text/css"/>
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
 
+    <script type="text/javascript" src="js/lib/angular.min.js"></script>
+
     <title>Dashka facebook | Homepage</title>
 </head>
 <body>
@@ -26,7 +28,7 @@
             <ul class="menu">
                 <li><a href="/${id}">Home</a></li>
                 <li><a href="/${id}/friend">Friends</a></li>
-                <li><a href="/${id}/message">Messages</a></li>
+                <li><a href="/${id}/message">Messages ${countMess}</a></li>
                 <li><a href="/${id}/search">Search</a></li>
                 <li class="last"><a href="j_spring_security_logout">Log out</a></li>
             </ul>
@@ -39,7 +41,7 @@
                     <h1>Send message.</h1>
                 </div>
                 <div class="content">
-                    <h2>To:</h2><select class="input" name="to">
+                    <h2>To:</h2><select class="input" name="to"  required>
                     <c:forEach items="${friends}" var="friend">
                         <option value="${friend.id}">${friend.name} ${friend.lastName}</option>
                     </c:forEach>
@@ -48,7 +50,7 @@
                     <h2>Title:</h2><input type="text" class="input" placeholder="Title" name="title"
                                           required><br/>
 
-                    <h2>Text:</h2><textarea type="text" class="input" placeholder="Text Message" name="text"
+                    <h2>Text:</h2><textarea type="text" class="input" placeholder="Text Message" name="TextMessage"
                                             required> </textarea><br/>
                 </div>
                 <div class="footer">

@@ -17,5 +17,8 @@ public interface IMessageService {
     public List<MessageDTO> geMessageDTOList(Integer idClient, Boolean status);
 
     public Message getMessage(Integer id);
+
     public Message update(Integer idMess);
+
+    public Long getCountUnread(Integer id);
 }

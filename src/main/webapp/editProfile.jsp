@@ -33,7 +33,7 @@
             <ul class="menu">
                 <li><a href="/${id}">Home</a></li>
                 <li><a href="/${id}/friend">Friends</a></li>
-                <li><a href="/${id}/message">Messages</a></li>
+                <li><a href="/${id}/message">Messages ${countMess}</a></li>
                 <li><a href="/${id}/search">Search</a></li>
                 <li class="last"><a href="j_spring_security_logout">Log out</a></li>
             </ul>
@@ -66,12 +66,13 @@
                                           value="${client.work}"/>
                     <br/>
 
-                    <h2>About me: </h2><textarea type="text" class="input" placeholder="About me" name="aboutMe">${client.aboutMe}</textarea><br/>
+                    <h2>About me: </h2><textarea type="text" class="input" placeholder="About me"
+                                                 name="aboutMe">${client.aboutMe}</textarea><br/>
                 </div>
                 <div class="footer">
                     <input type="submit" name="submit" value="Edit" class="button"/>
                     <a href="/${id}"><input type="button" name="submit" value="Back to profile"
-                                                 class="register"/></a>
+                                            class="register"/></a>
                 </div>
             </form:form>
         </div>

@@ -17,9 +17,9 @@ public interface MessageRepository extends JpaRepository<Message, Integer> {
 
     public List<Message> findByIdToAndStatusOrderByDateDesc(Integer idTo, Boolean status);
 
-    public List<Message> findByIdFromOrderByDateDesc (Integer idFrom);
+    public List<Message> findByIdFromOrderByDateDesc(Integer idFrom);
 
-    public Long countByStatus(Boolean status);
+    public Long countByStatusAndIdTo(Boolean status, Integer id);
 
 }
 

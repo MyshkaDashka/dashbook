@@ -33,6 +33,7 @@ public class MessageController {
         model.addAttribute("client", client);
         Set<Client> friends = clientService.getFriends(id);
         model.addAttribute("friends", friends);
+        model.addAttribute("countMess", messageService.getCountUnread(id));
         return "../message.jsp";
     }
 
@@ -40,7 +41,7 @@ public class MessageController {
     public String messanger(@PathVariable("id") Integer from,
                             @RequestParam("to") Integer to,
                             @RequestParam("title") String title,
-                            @RequestParam("text") String text,
+                            @RequestParam("TextMessage") String text,
                             ModelMap model) {
         messageService.save(to, from, title, text, false);
         return "redirect:/{id}";
@@ -52,6 +53,7 @@ public class MessageController {
         model.addAttribute("readMessDTO", messageService.geMessageDTOList(id, true));
         model.addAttribute("client", clientService.findClient(id));
         model.addAttribute("id", id);
+        model.addAttribute("countMess", messageService.getCountUnread(id));
         return "../messageShow.jsp";
     }
 
@@ -60,6 +62,7 @@ public class MessageController {
         model.addAttribute("unreadMessDTO", messageService.geMessageDTOList(id, false));
         model.addAttribute("client", clientService.findClient(id));
         model.addAttribute("id", id);
+        model.addAttribute("countMess", messageService.getCountUnread(id));
         return "../messageShow.jsp";
     }
 
@@ -68,18 +71,21 @@ public class MessageController {
         model.addAttribute("sentMessDTO", messageService.getSentMessageDTOList(id));
         model.addAttribute("client", clientService.findClient(id));
         model.addAttribute("id", id);
+        model.addAttribute("countMess", messageService.getCountUnread(id));
         return "../messageShow.jsp";
     }
 
     @RequestMapping(value = "/{id}/message/{msgId}", method = RequestMethod.GET)
     public String getMessageOne(@PathVariable Integer id, @PathVariable Integer msgId, ModelMap model) {
         Message msg = messageService.getMessage(msgId);
-        if (msg.getStatus() == false) {
+
+        if (msg.getStatus() == false && msg.getIdFrom() != id) {
             messageService.update(msg.getId());
         }
         model.addAttribute("msg", msg);
         model.addAttribute("client", clientService.findClient(id));
         model.addAttribute("id", id);
+        model.addAttribute("countMess", messageService.getCountUnread(id));
         return "../../messageFrom.jsp";
     }
 

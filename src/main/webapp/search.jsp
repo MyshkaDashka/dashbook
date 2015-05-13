@@ -25,39 +25,37 @@
             <ul class="menu">
                 <li><a href="/${id}">Home</a></li>
                 <li><a href="/${id}/friend">Friends</a></li>
-                <li><a href="/${id}/message">Messages</a></li>
+                <li><a href="/${id}/message">Messages ${countMess}</a></li>
                 <li><a href="/${id}/search">Search</a></li>
                 <li class="last"><a href="j_spring_security_logout">Log out</a></li>
             </ul>
         </div>
         <div id="skip-menu"></div>
         <div class="column-right">
-            <div class="box">
-                <div class="box-top"></div>
-                <div class="box-in">
-                    <form:form action="/${client.id}/sendMessage" method="POST" commandName="messagesForm"
-                               class="register-form">
-                        <div class="header">
-                            <h1>Search</h1>
-                            <span></span>
-                        </div>
-                        <div class="content">
-                            Name <input type="text" class="input" placeholder="Name" name="name"><br/>
-                            Last Name <input type="text" class="input" placeholder="Last Name" name="lastName"><br/>
-                            City <input type="text" class="input" placeholder="City" name="city"><br/>
-                            Work <input type="text" class="input" placeholder="Work" name="work"><br/>
-                        </div>
-                        <div class="footer">
-                            <button type="submit" name="submit" class="button">Search</button>
-                            <a href="/${client.id}"><input type="button" name="submit" value="Back to profile"
-                                                           class="register"/></a>
-                        </div>
-                    </form:form>
+            <form:form action="/${id}/searchUser" method="POST" commandName="messagesForm"
+                       class="register-form">
+                <div class="header">
+                    <h1>Search</h1>
+                    <span>Enter the search.</span>
                 </div>
-            </div>
-            <div class="box-bottom">
-                <div class="footer-info-right"><a href="http://www.mantisatemplates.com/">Mantis-a templates</a></div>
-            </div>
+                <div class="content">
+                    <h2>Name</h2> <input type="text" class="input" placeholder="Name" name="name" value=""><br/>
+
+                    <h2>Last Name</h2> <input type="text" class="input" placeholder="Last Name" name="lastName"
+                                              value=""><br/>
+
+                    <h2>City</h2> <input type="text" class="input" placeholder="City" name="city" value=""><br/>
+
+                    <h2>Study</h2> <input type="text" class="input" placeholder="Study" name="study" value=""><br/>
+
+                    <h2>Work</h2> <input type="text" class="input" placeholder="Work" name="work" value=""><br/>
+                </div>
+                <div class="footer">
+                    <button type="submit" name="submit" class="button">Search</button>
+                    <a href="/${id}"><input type="button" name="submit" value="Back to profile"
+                                            class="register"/></a>
+                </div>
+            </form:form>
         </div>
     </div>
 </div>

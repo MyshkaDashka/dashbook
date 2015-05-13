@@ -6,7 +6,11 @@ import by.bsuir.dashka.entity.User;
 import by.bsuir.dashka.repository.ClientFriendRepository;
 import by.bsuir.dashka.repository.ClientRepository;
 import by.bsuir.dashka.repository.UserRepository;
+import by.bsuir.dashka.repository.specification.ClientSpecification;
+import by.bsuir.dashka.repository.specification.SearchCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.jpa.domain.Specifications;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,6 +53,9 @@ public class ClientService implements IClientService {
         client.setName(name);
         client.setLastName(lastName);
         client.setUser(user);
+        client.setStudy("");
+        client.setCity("");
+        client.setWork("");
         return clientRepository.save(client);
     }
 
@@ -85,5 +92,17 @@ public class ClientService implements IClientService {
     public void removeFriend(Integer clientId, Integer friendId) {
         Client_FriendList cf = clientFriendRepository.findByIdClientAndIdFriend(clientId, friendId);
         clientFriendRepository.delete(cf);
+    }
+
+    @Transactional
+    public List<Client> search(String name, String lastName, String city, String study, String work) {
+        ClientSpecification specName = new ClientSpecification(new SearchCriteria("name", ":", name));
+        ClientSpecification specLastName = new ClientSpecification(new SearchCriteria("lastName", ":", lastName));
+        ClientSpecification specCity = new ClientSpecification(new SearchCriteria("city", ":", city));
+        ClientSpecification specStudy = new ClientSpecification(new SearchCriteria("study", ":", study));
+        ClientSpecification specWork = new ClientSpecification(new SearchCriteria("work", ":", work));
+        List<Client> result = clientRepository.findAll(Specifications.where(specName).and(specLastName).and(specCity).and(specStudy).and(specWork));
+        return result;
+
     }
 }

@@ -33,7 +33,7 @@
             <ul class="menu">
                 <li><a href="/${id}">Home</a></li>
                 <li><a href="/${id}/friend">Friends</a></li>
-                <li><a href="/${id}/message">Messages</a></li>
+                <li><a href="/${id}/message">Messages ${countMess}</a></li>
                 <li><a href="/${id}/search">Search</a></li>
                 <li class="last"><a href="j_spring_security_logout">Log out</a></li>
             </ul>
@@ -45,6 +45,7 @@
                 <div class="box-in">
                     <p><img src="../../img/girl.png" class="box-info">
                     </p>
+
                     <h2>${client.name} ${client.lastName}</h2>
                     <br/>
                     <a href="/${id}/addFriend/${client.id}">
@@ -60,6 +61,7 @@
                         <li><strong>Work: </strong> ${client.work}</li>
                     </ul>
                     <h2>About me</h2>
+
                     <p>${client.aboutMe}</p>
                     <br/>
 
