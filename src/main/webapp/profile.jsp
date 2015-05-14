@@ -12,7 +12,6 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection, tv"/>
     <link rel="stylesheet" href="css/style-print.css" type="text/css" media="print"/>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 
     <script type="text/javascript" src="js/lib/angular.min.js"></script>
     <script type="text/javascript" src="js/lib/angular-file-upload.min.js"></script>

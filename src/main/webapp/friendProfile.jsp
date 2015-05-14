@@ -13,8 +13,6 @@
     <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen, projection, tv"/>
     <link rel="stylesheet" href="../../css/style-print.css" type="text/css" media="print"/>
 
-    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon"/>
-
     <title>Dashka facebook | Homepage</title>
 </head>
 <body>

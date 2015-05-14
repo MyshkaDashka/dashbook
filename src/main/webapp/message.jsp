@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen, projection, tv"/>
     <link rel="stylesheet" href="../css/style-print.css" type="text/css" media="print"/>
     <link rel="stylesheet" href="../css/styleRegistration.css" type="text/css"/>
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
 
     <script type="text/javascript" src="../js/lib/angular.min.js"></script>
 
@@ -41,7 +40,7 @@
                     <h1>Send message.</h1>
                 </div>
                 <div class="content">
-                    <h2>To:</h2><select class="input" name="to"  required>
+                    <h2>To:</h2><select class="input" name="to" required>
                     <c:forEach items="${friends}" var="friend">
                         <option value="${friend.id}">${friend.name} ${friend.lastName}</option>
                     </c:forEach>
@@ -54,7 +53,7 @@
                 </div>
                 <div class="footer">
                     <input type="submit" name="submit" class="button" ng-disabled="messagesForm.$invalid"> Send
-                        message
+                    message
                     </input>
                     <a href="/${client.id}"><input type="button" name="submit" value="Back to profile"
                                                    class="register"/></a>

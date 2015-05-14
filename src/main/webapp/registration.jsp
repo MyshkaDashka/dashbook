@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/style-print.css" type="text/css" media="print"/>
     <link rel="stylesheet" href="css/styleRegistration.css" type="text/css"/>
     <script type="text/javascript" src="js/lib/angular.min.js"></script>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 
     <title>Dashka facebook | Registration</title>
 </head>
