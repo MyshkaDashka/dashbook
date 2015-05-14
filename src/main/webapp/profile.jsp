@@ -12,13 +12,17 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection, tv"/>
     <link rel="stylesheet" href="css/style-print.css" type="text/css" media="print"/>
-
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+
+    <script type="text/javascript" src="js/lib/angular.min.js"></script>
+    <script type="text/javascript" src="js/lib/angular-file-upload.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
 
     <title>Dashka facebook | Homepage</title>
 </head>
-<body>
-<div id="wrapper1">
+<body ng-app="App">
+<div id="wrapper1" ng-controller="Controller as ctrl">
     <!-- Title -->
     <div class="title">
         <div class="title-top">
@@ -44,6 +48,10 @@
                 <div class="box-top"></div>
                 <div class="box-in">
                     <p><img src="img/girl.png" class="box-info"></p>
+                    <span class="fileinput-button">
+                        <span>Edit Photo</span>
+                        <input type="file" name="file" nv-file-select uploader="uploader" ng-click="uploader.uploadAll()">
+                    </span>
 
                     <h2>${client.name} ${client.lastName}</h2>
                     <br/>

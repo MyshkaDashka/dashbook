@@ -45,6 +45,11 @@
           class="by.bsuir.dashka.service.CustomUserDetailService">
     </bean>
 
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="10000000"/>
+    </bean>
+
     <jpa:repositories base-package="by.bsuir.dashka.repository" />
 
     <context:component-scan base-package="by.bsuir.dashka.repository"/>

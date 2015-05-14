@@ -179,22 +179,22 @@ ul.menu li.last {
 }
 
 .box-info {
-    float: left; /* Выравнивание по левому краю */
-    margin: 7px 37px 17px 0; /* Отступы вокруг картинки */
+    float: left; /* пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ */
+    margin: 7px 37px 17px 0; /* пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
     width: 189px;
     height: 255px;
 }
 
 .box-infoFriends {
-    float: left; /* Выравнивание по левому краю */
-    margin: 7px 37px 17px 0; /* Отступы вокруг картинки */
+    float: left; /* пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ */
+    margin: 7px 37px 17px 0; /* пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
     width: 100px;
     height: 120px;
 }
 
 .box-infoFriends-mess {
-    float: left; /* Выравнивание по левому краю */
-    margin: 7px 37px 17px 0; /* Отступы вокруг картинки */
+    float: left; /* пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ */
+    margin: 7px 37px 17px 0; /* пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
     width: 50px;
     height: 60px;
 }
@@ -315,5 +315,22 @@ ul.main-listFriend li {
 .footer-info-left a, .footer-info-left a:visited, .footer-info-right a, .footer-info-right a:visited {
     font-weight: normal;
     color: #626262;
+}
+
+.fileinput-button {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+.fileinput-button input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    -ms-filter: 'alpha(opacity=0)';
+    font-size: 200px;
+    direction: ltr;
+    cursor: pointer;
 }
 

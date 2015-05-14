@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/styleRegistration.css" type="text/css"/>
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
 
-    <script type="text/javascript" src="js/lib/angular.min.js"></script>
+    <script type="text/javascript" src="../js/lib/angular.min.js"></script>
 
     <title>Dashka facebook | Homepage</title>
 </head>
@@ -50,13 +50,12 @@
                     <h2>Title:</h2><input type="text" class="input" placeholder="Title" name="title"
                                           required><br/>
 
-                    <h2>Text:</h2><textarea type="text" class="input" placeholder="Text Message" name="TextMessage"
-                                            required> </textarea><br/>
+                    <h2>Text:</h2><textarea class="input" placeholder="Text Message" name="TextMessage" required></textarea><br/>
                 </div>
                 <div class="footer">
-                    <button type="submit" name="submit" class="button" ng-disabled="messagesForm.$invalid"> Send
+                    <input type="submit" name="submit" class="button" ng-disabled="messagesForm.$invalid"> Send
                         message
-                    </button>
+                    </input>
                     <a href="/${client.id}"><input type="button" name="submit" value="Back to profile"
                                                    class="register"/></a>
                 </div>
