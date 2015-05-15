@@ -14,6 +14,23 @@
         <intercept-url pattern="/registrations" access="permitAll"/>
         <intercept-url pattern="/success" access="hasRole('USER')"/>
         <intercept-url pattern="/profile" access="hasRole('USER')"/>
+        <!--<intercept-url pattern="/{id}" access="hasRole('USER')"/>-->
+        <intercept-url pattern="/friend" access="hasRole('USER')"/>
+        <!--<intercept-url pattern="/{id}/editProfile" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/edit" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/friend" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/sendmessage" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/msgunread" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/message" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/sendMessage" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/removeFriend/{idFriend}" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/addFriend/{idFriend}" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/friend/{friendId}" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/upload" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/searchUser" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/msgsent" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/message/{msgId}" access="hasRole('USER')"/>-->
+
         <form-login
                 login-page="/"
                 authentication-failure-url="/?error"

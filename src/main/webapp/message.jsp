@@ -52,9 +52,7 @@
                     <h2>Text:</h2><textarea class="input" placeholder="Text Message" name="TextMessage" required></textarea><br/>
                 </div>
                 <div class="footer">
-                    <input type="submit" name="submit" class="button" ng-disabled="messagesForm.$invalid"> Send
-                    message
-                    </input>
+                    <input type="submit" name="submit" class="button" ng-disabled="messagesForm.$invalid" value="Send"/>
                     <a href="/${client.id}"><input type="button" name="submit" value="Back to profile"
                                                    class="register"/></a>
                 </div>

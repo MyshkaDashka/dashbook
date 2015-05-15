@@ -46,15 +46,16 @@
             <div class="box">
                 <div class="box-top"></div>
                 <div class="box-in">
-                    <p><img src="img/girl.png" class="box-info"></p>
-                    <span class="fileinput-button">
-                        <span>Edit Photo</span>
+                    <div class="edit-button">
+                        <a href="/${id}/edit">Edit profile |</a>
+                    <span class="fileinput-button" >
+                        <span>Edit photo</span>
                         <input type="file" name="file" nv-file-select uploader="uploader" ng-click="uploader.uploadAll()">
-                    </span>
+                    </span></div>
+                    <p><img src="${client.photo}" class="box-info"></p>
 
                     <h2>${client.name} ${client.lastName}</h2>
                     <br/>
-                    <a href="/${id}/edit">Edit profile</a>
                     <ul class="main-list">
                         <li><strong>City: </strong> ${client.city}</li>
                         <li><strong>Birthday: </strong> ${client.birthday}</li>

@@ -37,7 +37,7 @@
                     <h2>Friends ${client.name} ${client.lastName}</h2>
                     ${removeFriend.name} ${removeFriend.lastName} ${msgFriendsStatus}
                     <c:forEach items="${friends}" var="friend">
-                        <p><img src="../../img/girl.png" class="box-infoFriends"></p>
+                        <p><img src="../../${friend.photo}" class="box-infoFriends"></p>
                         <a href="/${id}/friend/${friend.id}"><h2>${friend.name} ${friend.lastName}</h2></a>
                         <br/>
                         <a href="/${id}/removeFriend/${friend.id}">

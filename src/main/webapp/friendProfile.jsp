@@ -41,7 +41,7 @@
             <div class="box">
                 <div class="box-top"></div>
                 <div class="box-in">
-                    <p><img src="../../img/girl.png" class="box-info">
+                    <p><img src="../../${client.photo}" class="box-info">
                     </p>
 
                     <h2>${client.name} ${client.lastName}</h2>

@@ -56,6 +56,7 @@ public class ClientService implements IClientService {
         client.setStudy("");
         client.setCity("");
         client.setWork("");
+        client.setPhoto("img/avatars/avatar.jpg");
         return clientRepository.save(client);
     }
 

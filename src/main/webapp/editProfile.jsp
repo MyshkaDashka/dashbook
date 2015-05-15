@@ -76,8 +76,6 @@
                 </div>
             </form:form>
         </div>
-        <div class="footer-info-right"><a href="http://www.mantisatemplates.com/">Mantis-a templates</a>
-        </div>
     </div>
 </div>
 </body>

@@ -38,7 +38,7 @@
                     <br/>
                     ${msgSearch}
                     <c:forEach items="${searchResults}" var="searchResult">
-                        <p><img src="../../img/girl.png" class="box-infoFriends"></p>
+                        <p><img src="../../${searchResult.photo}" class="box-infoFriends"></p>
                         <a href="/${id}/friend/${searchResult.id}">
                             <h2>${searchResult.name} ${searchResult.lastName}</h2></a>
                         <br/>
