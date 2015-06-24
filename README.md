@@ -2,4 +2,4 @@
 
 Social network
 
-MySQL, JSP, springDate, springSecurity, Hibernate, maven
+MySQL, JSP, springData, springSecurity, Hibernate, maven
